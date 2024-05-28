@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const uuid = require('uuid');
 
 const app = express();
 
@@ -31,26 +32,37 @@ app.get('/todos',(req,res)=>{
 });
 
 app.get('/todos/:id',(req,res)=>{
-  res.json({msg:"id"});
+  let oneTodo = todos.filter((oneTodo ) => oneTodo.id == req.params.id);
+  res.json({msg:"id", data:oneTodo});
 });
 
 
 //POST
 
 app.post('/todos',(req,res)=>{
-  res.json({msg:"add to do"});
+  todos.push({id:uuid.v4(), ...req.body})
+  res.json({msg:"add to do", data:todos});
 });
 
 //EDIT
 
 app.put('/todos/:id',(req,res)=>{
-  res.json({msg:"edit to do"});
+  let todo =todos.find((todo) => todo.id ==req.params.id);
+  if(todo){
+    todo.name =req.body.name;
+    todo.completed = req.body.completed;
+    res.json({msg:"edit todo",data:todo});
+  }
+  res.json({msg:" todo not found"});
+
 });
 
 //DELETE
 
 app.delete('/todos/:id',(req,res)=>{
-  res.json({msg:"delete to do"});
+  let index = todos.find((todo) => todo.id ==req.params.id);
+  todos.splice(index,1);
+  res.json({msg:"delete to do",data:todos});
 });
 
 
