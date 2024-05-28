@@ -30,6 +30,7 @@ body{
   margin-bottom: 40px;
 }
 
+/* input feild */
 .row{
   display: flex;
   align-items: center;
@@ -68,4 +69,29 @@ button{
   cursor: pointer;
   border-radius: 30px;
   margin: 1px;
+}
+
+/* Display list */
+
+ul li{
+  list-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  margin-block: 10px;
+}
+
+/* unchecked item */
+
+ul li::before{
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  background-image: url(images/unchecked.png) ;
 }
