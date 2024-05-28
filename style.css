@@ -21,3 +21,51 @@ body{
   box-shadow: 0 0 30px #afafaf; 
 
 }
+
+.main h2{
+  color: #002765;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: 3px groove #000;
+  outline-offset: 5px;
+  border: none;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 0  10px #5d5d5d;
+}
+
+input{
+  flex:1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding: 10px;
+
+}
+
+input::placeholder{
+  color: #3c78d8;
+}
+button{
+  border: none;
+  outline: none;
+  padding: 14px 25px;
+  background: #26062f;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 30px;
+  margin: 1px;
+}
