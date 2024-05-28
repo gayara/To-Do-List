@@ -16,10 +16,21 @@
       </div>
       <div class="div">
         <ul id="task-list">
-          <li>Task1</li>
-          <li>Task1</li>
+
         </ul>
       </div>
+      <script>
+        fetch('').then(response =>{
+          return response.json();
+        })
+        .then(data =>{
+          data.forEach(user =>{
+            const markup ='<li>${}</li>';
+            document.querySelector('ul').insertAdjacentHTML('beforeend',markup)
+          });
+        }).catch(error => console.log(error));
+      
+      </script>
     </div>
   </main>
 </body>
